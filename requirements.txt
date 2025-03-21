@@ -1,6 +1,4 @@
-psycopg2
+Pillow
 pymongo[srv]
-pyhive[hive]
-pyspark
 authlib
 pyodbc
