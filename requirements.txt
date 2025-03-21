@@ -2,3 +2,6 @@ Pillow
 pymongo[srv]
 authlib
 pyodbc
+pyhive[hive]
+psycopg2-binary
+apache-superset[postgresql,hive]
