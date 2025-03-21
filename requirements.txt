@@ -1,0 +1,6 @@
+psycopg2
+pymongo[srv]
+pyhive[hive]
+pyspark
+authlib
+pyodbc

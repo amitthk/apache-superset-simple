@@ -1,0 +1,39 @@
+* Simplified apache superset image
+
+Using the image:
+
+Pull the image:
+
+#+BEGIN_SRC 
+docker pull amitthk/apache-superset-simple
+#+END_SRC
+
+create the .env file with a secret key. This should be only done once and to be mounted next time if the container is persisted and to be re-used in future.
+#+BEGIN_SRC
+SUPERSET_SECRET_KEY=$(openssl rand -base64 42) echo "SUPERSET_SECRET_KEY=$SUPERSET_SECRET_KEY" > .env
+#+END_SRC
+
+
+Run the container:
+
+#+BEGIN_SRC 
+docker run -d --env-file .env -p 8088:8088 amitthk/apache-superset-simple
+#+END_SRC
+
+To run the container on host network so that the container can resolve the hostnames of the services running on the host machine network:
+
+#+BEGIN_SRC 
+docker run -d --env-file .env --network host amitthk/apache-superset-simple
+#+END_SRC
+
+To run the container with a backend database, update the .env file with the database connection string and run the container:
+
+#+BEGIN_SRC 
+vi .env
+#add the following line:
+SUPERSET_DATABASE_URI_OVERRIDE=postgresql+pyodbc://myuser:mypassword@myhost:5432/mydatabase?driver=PostgreSQL+Unicode
+#+END_SRC
+
+#+BEGIN_SRC 
+docker run -d --env-file .env -p 8088:8088 amitthk/apache-superset-simple
+#+END_SRC
