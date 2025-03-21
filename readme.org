@@ -34,6 +34,13 @@ vi .env
 SUPERSET_DATABASE_URI_OVERRIDE=postgresql+pyodbc://myuser:mypassword@myhost:5432/mydatabase?driver=PostgreSQL+Unicode
 #+END_SRC
 
+For intel based systems use the following image:
 #+BEGIN_SRC 
-docker run -d --env-file .env -p 8088:8088 amitthk/apache-superset-simple
+docker run -d --env-file .env -p 8088:8088 amitthk/apache-superset-simple:latest
+#+END_SRC
+
+For arm based systems use the following image:
+
+#+BEGIN_SRC 
+docker run -d --env-file .env -p 8088:8088 amitthk/apache-superset-simple:arm64
 #+END_SRC
