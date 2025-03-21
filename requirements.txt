@@ -5,3 +5,4 @@ pyodbc
 pyhive[hive]
 psycopg2-binary
 apache-superset[postgresql,hive]
+elasticsearch-dbapi
